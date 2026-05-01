@@ -1,4 +1,4 @@
-# AI Heritage Storyteller
+#  Heritale (AI Heritage Storyteller)
 
 An interactive, multilingual web application that transforms Indian monuments into engaging storytelling experiences using AI, featuring real maps, image galleries, and audio narration.
 
