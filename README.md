@@ -338,3 +338,8 @@ Open Source (MIT)
 **Last Updated**: February 2026
 
 **Features**: Interactive Map | AI Stories | Audio Narration | 7 Languages | Image Galleries | Community Stories
+
+Credits:
+A. NEELU
+SYYEDA UZMA
+ZUMAR SANIA
