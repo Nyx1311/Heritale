@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Heritage Storyteller - Discover India's Heritage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Leaflet CSS for real maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🏛️ AI Heritage Storyteller</h1>
+            <p class="tagline">Experience India's Monuments Through Stories</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Explore India's Heritage</h2>
+            <p>Click on any state to discover monuments and hear their stories in your language</p>
+        </section>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <label for="language">Choose Language:</label>
+            <select id="language">
+                <option value="en">English</option>
+                <option value="hi">हिंदी (Hindi)</option>
+                <option value="te">తెలుగు (Telugu)</option>
+                <option value="ta">தமிழ் (Tamil)</option>
+                <option value="bn">বাংলা (Bengali)</option>
+                <option value="mr">मराठी (Marathi)</option>
+                <option value="gu">ગુજરાતી (Gujarati)</option>
+            </select>
+        </div>
+
+        <!-- Interactive India Map (Phase 6) -->
+        <div class="map-wrapper" id="map-wrapper">
+            <div class="map-header">
+                <h2>🗺️ Heritage Map of India</h2>
+                <p class="map-subtitle">Click on any marker to explore the region's heritage monuments</p>
+            </div>
+            <div class="map-stats" id="map-stats">
+                <div class="map-stat">
+                    <span class="map-stat-number" id="stat-states">--</span>
+                    <span class="map-stat-label">States &amp; UTs</span>
+                </div>
+                <div class="map-stat">
+                    <span class="map-stat-number" id="stat-monuments">--</span>
+                    <span class="map-stat-label">Monuments</span>
+                </div>
+                <div class="map-stat">
+                    <span class="map-stat-number" id="stat-stories">--</span>
+                    <span class="map-stat-label">Stories</span>
+                </div>
+            </div>
+            <div id="india-map-container" class="india-map-container">
+                <!-- Leaflet map will be rendered here by india_map.js -->
+            </div>
+            <div class="map-controls-bar">
+                <button class="map-control-btn" id="btn-reset-map" title="Reset to full India view">🔄 Reset View</button>
+                <button class="map-control-btn" id="btn-random-monument" title="Discover a random monument">🎲 Surprise Me</button>
+            </div>
+        </div>
+
+        <!-- Monuments Display -->
+        <div id="monuments-section" style="display: none;">
+            <h2>Monuments in <span id="selected-state"></span></h2>
+            <div id="monuments-container"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI Heritage Storyteller | Preserving Cultural Memory</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for real maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="{{ url_for('static', filename='js/india_map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

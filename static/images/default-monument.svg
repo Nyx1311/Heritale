@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#F5E6D3"/>
+  
+  <!-- Monument silhouette -->
+  <g fill="#8B4513" opacity="0.3">
+    <!-- Base -->
+    <rect x="150" y="200" width="100" height="80" rx="5"/>
+    
+    <!-- Middle structure -->
+    <rect x="160" y="160" width="80" height="40"/>
+    
+    <!-- Dome -->
+    <ellipse cx="200" cy="160" rx="50" ry="30"/>
+    
+    <!-- Small dome on top -->
+    <ellipse cx="200" cy="135" rx="15" ry="10"/>
+    
+    <!-- Pillars -->
+    <rect x="165" y="200" width="8" height="60"/>
+    <rect x="185" y="200" width="8" height="60"/>
+    <rect x="207" y="200" width="8" height="60"/>
+    <rect x="227" y="200" width="8" height="60"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="120" font-family="Arial, sans-serif" font-size="16" fill="#8B4513" text-anchor="middle" opacity="0.5">
+    Monument Image
+  </text>
+</svg>

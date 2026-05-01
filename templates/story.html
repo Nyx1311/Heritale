@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monument Story - AI Heritage Storyteller</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="story-page-body">
+    <!-- Immersive Background Layer - dynamically set by JS -->
+    <div id="immersive-bg" class="immersive-bg"></div>
+    <div id="immersive-bg-overlay" class="immersive-bg-overlay"></div>
+
+    <!-- Immersive Hero Banner -->
+    <div id="monument-hero-banner" class="monument-hero-banner">
+        <div class="hero-banner-image-wrap">
+            <img id="hero-banner-img" class="hero-banner-img" src="" alt="">
+        </div>
+        <div class="hero-banner-overlay"></div>
+        <a href="/" class="back-link-hero">← Back to Map</a>
+        <div class="hero-banner-content">
+            <h1 id="monument-name" class="hero-banner-title">Loading...</h1>
+            <p id="monument-location" class="hero-banner-location"></p>
+            <div id="hero-gallery-badge" class="hero-gallery-badge" style="display:none;" onclick="openLightbox(0)">
+                🖼️ View Gallery (<span id="image-count">0</span> photos)
+            </div>
+        </div>
+    </div>
+
+    <main class="container story-page-main">
+        <!-- Language Selector -->
+        <div class="language-selector story-language-selector">
+            <label for="language">Listen in:</label>
+            <select id="language" onchange="loadStory()">
+                <option value="en">English</option>
+                <option value="hi">हिंदी (Hindi)</option>
+                <option value="te">తెలుగు (Telugu)</option>
+                <option value="ta">தமிழ் (Tamil)</option>
+                <option value="bn">বাংলা (Bengali)</option>
+                <option value="mr">मराठी (Marathi)</option>
+                <option value="gu">ગુજરાતી (Gujarati)</option>
+            </select>
+        </div>
+
+        <!-- Audio Player -->
+        <section class="audio-section">
+            <h3>🎵 Audio Narration</h3>
+            <div class="audio-player" id="audio-player" style="display: none;">
+                <audio id="story-audio" controls>
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div id="audio-placeholder" style="display: none;">
+                <p>🎵 Loading audio...</p>
+            </div>
+        </section>
+
+        <!-- Story Text -->
+        <section class="story-section">
+            <h3>📜 The Story</h3>
+            <div id="story-text" class="story-text">
+                <p>Loading story...</p>
+            </div>
+            <div id="loading" class="loading" style="display: none;">
+                <p>✨ Generating your story...</p>
+            </div>
+        </section>
+
+        <!-- User Contribution Form -->
+        <section class="contribute-section">
+            <h3>✍️ Share Your Story</h3>
+            <p>Have a memory or story about this monument? Share it with the community!</p>
+            
+            <!-- Voice Recording Section -->
+            <div class="voice-input-section">
+                <h4>🎤 Record Your Story</h4>
+                <div class="voice-controls">
+                    <button type="button" id="start-recording" class="btn-voice">
+                        🎤 Start Recording
+                    </button>
+                    <button type="button" id="stop-recording" class="btn-voice" style="display: none;">
+                        ⏹️ Stop Recording
+                    </button>
+                    <span id="recording-status" class="recording-status"></span>
+                </div>
+                <div id="voice-transcript" class="voice-transcript" style="display: none;">
+                    <p><strong>Your recorded story:</strong></p>
+                    <p id="transcript-text"></p>
+                </div>
+            </div>
+
+            <div class="input-divider">
+                <span>OR</span>
+            </div>
+
+            <!-- Text Input Section -->
+            <div class="text-input-section">
+                <h4>Write Your Story</h4>
+                <form id="story-form">
+                    <textarea 
+                        id="user-story" 
+                        placeholder="Share your experience, memory, or story about this monument..."
+                        rows="5"></textarea>
+                    <button type="submit" class="btn-primary">Submit Story</button>
+                </form>
+            </div>
+            
+            <div id="submission-result"></div>
+        </section>
+
+        <!-- User Stories/Comments Section -->
+        <section class="user-stories-section">
+            <h3>💬 Community Stories</h3>
+            <p>See what others have shared about this monument:</p>
+            
+            <div id="user-stories-container" class="stories-container">
+                <div class="loading-stories">
+                    <p>Loading community stories...</p>
+                </div>
+            </div>
+            
+            <div id="no-stories" style="display: none;">
+                <p class="no-stories-msg">🌟 Be the first to share your story about this monument!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Lightbox Modal -->
+    <div id="image-lightbox" class="lightbox" style="display: none;">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev">&#10094;</button>
+        <button class="lightbox-next">&#10095;</button>
+        <img id="lightbox-image" src="" alt="Monument Image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AI Heritage Storyteller | Preserving Cultural Memory</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/story.js') }}"></script>
+</body>
+</html>
